@@ -17,8 +17,10 @@ Including another URLconf
 from django.urls import path
 from .views import main_view, departure_view, tour_view
 
+
 urlpatterns = [
-   path('toor', tour_view, name='tour_view'),
+   path('toor/<int:hotel_number>', tour_view, name='tour_view'),
    path('', main_view, name='main_view'),
-   path('departure', departure_view, name='departure_view'),
+   path('departure/<str:city>', departure_view, name='departure_view'),
+   path('departure/<str:city>/toor/<int:hotel_number>', tour_view, name='tour_view'),
 ]
